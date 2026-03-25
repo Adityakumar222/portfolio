@@ -81,6 +81,12 @@
       --btn-primary-text: #050208;
       --social-hover-text: #050208;
       --back-top-hover-text: #050208;
+      
+      /* Certifications specific variables */
+      --cert-bg: rgba(8, 6, 18, 0.4);
+      --cert-border: rgba(255, 255, 255, 0.03);
+      --cert-border-hover: rgba(67, 197, 255, 0.15);
+      --cert-text-muted: #8b7da8;
       color-scheme: dark;
     }
 
@@ -153,6 +159,12 @@
       --btn-primary-text: #ffffff;
       --social-hover-text: #ffffff;
       --back-top-hover-text: #ffffff;
+      
+      /* Certifications specific variables */
+      --cert-bg: rgba(255, 255, 255, 0.6);
+      --cert-border: rgba(0, 0, 0, 0.04);
+      --cert-border-hover: rgba(2, 132, 199, 0.12);
+      --cert-text-muted: #6b7280;
       color-scheme: light;
     }
 
@@ -366,6 +378,17 @@
       max-width: 680px; margin-bottom: 28px;
     }
 
+    /* Compact styling for certifications section */
+    .section-title--compact {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      margin-bottom: 6px;
+    }
+    .section-sub--compact {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
     /* Hero */
     .hero {
       display: grid; grid-template-columns: 1.4fr 0.6fr;
@@ -505,6 +528,96 @@
     .about-card:hover { border-color: var(--card-border-hover); }
     .about-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
     .about-card p { color: var(--muted); line-height: 1.55; }
+
+    /* ═══════════ CERTIFICATIONS SECTION ═══════════ */
+    .certifications-section {
+      margin-top: 60px; /* Reduced from 80px */
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 12px; /* Smaller gap */
+      margin-top: 16px;
+    }
+
+    .cert-card {
+      padding: 16px 18px; /* Much smaller padding */
+      border-radius: 16px; /* Smaller radius */
+      background: var(--cert-bg);
+      border: 1px solid var(--cert-border);
+      transition: all 0.25s ease;
+      position: relative;
+      backdrop-filter: blur(8px);
+    }
+
+    .cert-card:hover {
+      border-color: var(--cert-border-hover);
+      transform: translateY(-2px); /* Subtle lift */
+    }
+
+    .cert-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .cert-content {
+      flex: 1;
+    }
+
+    .cert-card h3 {
+      font-size: 0.95rem; /* Smaller title */
+      font-weight: 600;
+      margin-bottom: 4px;
+      line-height: 1.3;
+      color: var(--fg);
+    }
+
+    .cert-meta {
+      font-size: 0.8rem; /* Smaller meta text */
+      color: var(--cert-text-muted);
+      margin-bottom: 0;
+      opacity: 0.8;
+    }
+
+    .cert-provider {
+      font-size: 0.82rem;
+      color: var(--accent-blue);
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .cert-link {
+      padding: 6px 12px; /* Smaller button */
+      border-radius: 999px;
+      border: 1px solid var(--cert-border-hover);
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      background: rgba(67, 197, 255, 0.03);
+      flex-shrink: 0;
+    }
+
+    .cert-link:hover {
+      background: rgba(67, 197, 255, 0.08);
+      transform: translateY(-1px);
+      border-color: var(--accent-blue);
+    }
+
+    [data-theme="light"] .cert-link {
+      background: rgba(2, 132, 199, 0.02);
+    }
+
+    [data-theme="light"] .cert-link:hover {
+      background: rgba(2, 132, 199, 0.06);
+    }
 
     /* Skills */
     .skills-section { margin-top: 80px; }
@@ -725,31 +838,6 @@
       color: var(--accent-blue); white-space: pre-wrap; word-break: break-all;
     }
 
-    /* Recently Learned */
-    .recently-learned { margin-top: 80px; }
-    .recently-learned-card {
-      padding: 32px; border-radius: 22px;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      transition: background 0.4s, border-color 0.4s;
-    }
-    .recently-learned-card > p { color: var(--muted); line-height: 1.55; max-width: 700px; }
-    .evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
-    .evidence-item {
-      padding: 18px; border-radius: 16px;
-      background: var(--card-bg-deep); border: 1px solid var(--card-border);
-      transition: border-color 0.3s, transform 0.25s ease, background 0.4s;
-      will-change: transform;
-      position: relative;
-      overflow: hidden;
-    }
-    .evidence-item:hover { border-color: var(--card-border-hover); }
-    .evidence-type {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
-      color: var(--accent); margin-bottom: 6px; font-weight: 600;
-    }
-    .evidence-item h4 { font-size: 0.95rem; margin-bottom: 4px; font-weight: 600; }
-    .evidence-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.45; }
-
     /* Contact */
     .contact {
       margin-top: 80px; padding: 42px 36px; border-radius: var(--radius);
@@ -804,8 +892,7 @@
     /* 🔥 CARD INTERACTIVE GLOW */
     .project-card::after,
     .skill-card::after,
-    .about-card::after,
-    .evidence-item::after {
+    .about-card::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -823,8 +910,7 @@
     /* Dark mode stronger glow */
     [data-theme="dark"] .project-card::after,
     [data-theme="dark"] .skill-card::after,
-    [data-theme="dark"] .about-card::after,
-    [data-theme="dark"] .evidence-item::after {
+    [data-theme="dark"] .about-card::after {
       background: radial-gradient(
         300px circle at var(--mx, 50%) var(--my, 50%),
         rgba(168, 85, 247, 0.25),
@@ -836,8 +922,7 @@
     /* Light mode subtle glow */
     [data-theme="light"] .project-card::after,
     [data-theme="light"] .skill-card::after,
-    [data-theme="light"] .about-card::after,
-    [data-theme="light"] .evidence-item::after {
+    [data-theme="light"] .about-card::after {
       background: radial-gradient(
         250px circle at var(--mx, 50%) var(--my, 50%),
         rgba(0, 0, 0, 0.06),
@@ -848,8 +933,7 @@
     /* Show glow only on hover */
     .project-card:hover::after,
     .skill-card:hover::after,
-    .about-card:hover::after,
-    .evidence-item:hover::after {
+    .about-card:hover::after {
       opacity: 1;
     }
 
@@ -912,6 +996,7 @@
         0 0 40px rgba(124,58,237,0.08);
     }
 
+    /* Responsive Design */
     @media (max-width: 960px) {
       .neon-header { flex-wrap: wrap; }
       .hero { grid-template-columns: 1fr; padding: 36px 28px; }
@@ -919,7 +1004,13 @@
       .about-grid { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 1fr; }
       .contact { grid-template-columns: 1fr; }
+      
+      .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
     }
+
     @media (max-width: 640px) {
       .social-rail { display: none; }
       .back-to-top { display: none; }
@@ -931,6 +1022,21 @@
       .skills-grid { grid-template-columns: 1fr; }
       .floating-resume { padding: 10px 18px; font-size: 0.82rem; bottom: 60px; right: 20px; }
       .shell { padding-bottom: 80px; }
+
+      .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .cert-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .cert-link {
+        align-self: flex-start;
+        margin-top: 4px;
+      }
     }
   </style>
 </head>
@@ -1220,17 +1326,86 @@
 
     <div class="divider"></div>
 
-    <!-- ═══════════ RECENTLY LEARNED ═══════════ -->
-    <section class="recently-learned reveal" id="recently-learned">
-      <div class="section-label">Recently Learned</div>
-      <h2 class="section-title">Concrete things I've shipped or completed</h2>
-      <div class="recently-learned-card">
-        <p>Not a wishlist — evidence of what I've actually done recently.</p>
-        <div class="evidence-grid">
-          <div class="evidence-item reveal reveal-delay-1"><div class="evidence-type">🚀 Shipped</div><h4>Credit Risk API with CI/CD</h4><p>End-to-end pipeline from data cleaning to live Render deployment with GitHub Actions auto-deploy on push to main.</p></div>
-          <div class="evidence-item reveal reveal-delay-2"><div class="evidence-type">✅ Completed</div><h4>Docker containerization workflow</h4><p>Learned multi-stage Dockerfiles, built reproducible ML containers, and deployed them to Render with environment variable management.</p></div>
-          <div class="evidence-item reveal reveal-delay-3"><div class="evidence-type">🔧 Built</div><h4>FastAPI versioned endpoints</h4><p>Implemented API versioning, Pydantic validation, structured error responses, and OpenAPI docs across two production services.</p></div>
-          <div class="evidence-item reveal reveal-delay-1"><div class="evidence-type">📜 Certification</div><h4>Python for Data Science — Board Infinity</h4><p>Completed with focus on Pandas, NumPy, and statistical analysis. Applied learnings directly to credit risk feature engineering.</p></div>
+    <!-- ═══════════ CERTIFICATIONS (REDESIGNED) ═══════════ -->
+    <section class="certifications-section reveal" id="certifications">
+      <div class="section-label">Certifications</div>
+      <h2 class="section-title section-title--compact">Certifications</h2>
+      <p class="section-sub section-sub--compact">Verified learning highlights.</p>
+      
+      <div class="cert-grid">
+        <article class="cert-card reveal reveal-delay-1">
+          <div class="cert-row">
+            <div class="cert-content">
+              <h3>Python for Data Science</h3>
+              <div class="cert-provider">Board Infinity</div>
+              <p class="cert-meta">Feb 2024</p>
+            </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1KrtSN33z2clMj0PR6cG_wz7zhwl1wVuU/view?usp=drive_link" target="_blank" rel="noreferrer">View ↗</a>
+          </div>
+        </article>
+
+        <article class="cert-card reveal reveal-delay-2">
+          <div class="cert-row">
+            <div class="cert-content">
+              <h3>Master Generative AI & Generative AI tools</h3>
+              <div class="cert-provider">Udemy</div>
+              <p class="cert-meta">Aug 2025</p>
+            </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1P7I2Sw0YizrV-ckIPYv8QoB3K8Ij3tja/view?usp=drive_link" target="_blank" rel="noreferrer">View ↗</a>
+          </div>
+        </article>
+
+        <article class="cert-card reveal reveal-delay-1">
+          <div class="cert-row">
+            <div class="cert-content">
+              <h3>ChatGPT - 4 Prompt Engineering : ChatGPT, Generative AI & LLM</h3>
+              <div class="cert-provider">Infosys Springboard</div>
+              <p class="cert-meta">Dec 2025</p>
+            </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1cmjVOOSBd0aqTGfxB-n6JjE62aP_UgOa/view?usp=drive_link" target="_blank" rel="noreferrer">View ↗</a>
+          </div>
+        </article>
+
+        <article class="cert-card reveal reveal-delay-2">
+          <div class="cert-row">
+            <div class="cert-content">
+              <h3>Master GenerativeAI & GenerativeAI Tools</h3>
+              <div class="cert-provider">Udemy</div>
+              <p class="cert-meta">Aug 2025</p>
+            </div>
+            <a class="cert-link" href="link dalde yaha" target="_blank" rel="noreferrer">View ↗</a>
+          </div>
+        </article>
+
+        <article class="cert-card reveal reveal-delay-1">
+          <div class="cert-row">
+            <div class="cert-content">
+              <h3>Computational Theory</h3>
+              <div class="cert-provider">Infosys</div>
+              <p class="cert-meta">Aug 2025</p>
+            </div>
+            <a class="cert-link" href="link dalde yaha" target="_blank" rel="noreferrer">View ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════ TRAINING ═══════════ -->
+    <section class="about-section reveal" id="training">
+      <div class="section-label">Training</div>
+      <h2 class="section-title">Hands-on training</h2>
+      <div class="about-grid">
+        <div class="about-card reveal reveal-delay-1">
+          <h3>🧑‍💻 Data Structures using C++ — Lovely Professional University</h3>
+          <p>Jun 2025 – Jul 2025</p>
+          <p>Implemented arrays, linked lists, stacks, queues; covered insertion, deletion, traversal, searching, and sorting.</p>
+          <p>Built algorithms and recursive programs including merge sort, quick sort, linear/binary search, and BST operations (insertion, search, deletion, height).</p>
+          <p>Developed a Student Record Manager using arrays with create, search, update, delete, and menu-driven UI.</p>
+          <div style="margin-top: 12px;">
+            <a class="btn primary" href="https://drive.google.com/file/d/1wiw5hKmIwsu_cmDwa1H056MGD16vyyID/view?usp=drive_link" target="_blank" rel="noreferrer">View Certificate ↗</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1242,10 +1417,22 @@
       <div class="section-label">Education</div>
       <h2 class="section-title">Background</h2>
       <div class="about-grid">
-        <div class="about-card reveal reveal-delay-1"><h3>🎓 B.Tech — Computer Science and Engineering</h3><p>Lovely Professional University, Phagwara, Punjab · Aug 2023 – Present. Coursework in algorithms, data structures, databases, and machine learning.</p></div>
-        <div class="about-card reveal reveal-delay-2"><h3>📜 Certifications</h3><p>Python for Data Science (Board Infinity) · Fundamentals of Network Communication (Udemy) · Master Generative AI & Tools (Udemy) · ChatGPT-4 Prompt Engineering (Infosys Springboard).</p></div>
-        <div class="about-card reveal reveal-delay-1"><h3>🏆 Community & Hackathons</h3><p>NGO logistics coordination for distribution drives. Hackathon Top 20 finish delivering a working solution under time pressure.</p></div>
-        <div class="about-card reveal reveal-delay-2"><h3>📚 Schooling</h3><p>PCM Intermediate — BL Indo Anglian Public School, Aurangabad, Bihar (83.8%). Matriculation — Daksh Public School, Haspura, Bihar (90.6%).</p></div>
+        <div class="about-card reveal reveal-delay-1">
+          <h3>🎓 B.Tech — Computer Science and Engineering</h3>
+          <p>Lovely Professional University, Phagwara, Punjab · Aug 2023 – Present · Current CGPA: 7.31</p>
+        </div>
+        <div class="about-card reveal reveal-delay-2">
+          <h3>🏫 12th — PCM Intermediate</h3>
+          <p>BL Indo Anglian Public School, Aurangabad, Bihar · Percentage: 83.8%</p>
+        </div>
+        <div class="about-card reveal reveal-delay-1">
+          <h3>🏫 10th — Matriculation</h3>
+          <p>Daksh Public School, Haspura, Bihar · Percentage: 90.6%</p>
+        </div>
+        <div class="about-card reveal reveal-delay-2">
+          <h3>🏆 Activities & Achievements</h3>
+          <p>NGO community development (Jul 2024). Hackathon Top 20 finish (Mar 2024).</p>
+        </div>
       </div>
     </section>
 
@@ -1256,17 +1443,65 @@
       <div>
         <div class="section-label">Get In Touch</div>
         <h2 class="section-title">ML + API projects welcome</h2>
-        <p>Open to ML engineering roles, part-time positions, and project collaborations where ML systems, FastAPI services, or data pipelines are the core deliverable.</p>
+        <p>Send me a message directly. I'll respond about roles, part-time work, or collaborations.</p>
+
+        <form id="contactForm" class="contact-actions" onsubmit="sendMessage(event)">
+          <div class="api-form-grid" style="width: 100%; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+            <div class="api-field">
+              <label>Your Name</label>
+              <div class="api-field-wrap">
+                <input type="text" id="contactName" placeholder=" " required />
+                <span class="field-hint">e.g. Aditya</span>
+              </div>
+            </div>
+
+            <div class="api-field">
+              <label>Your Email</label>
+              <div class="api-field-wrap">
+                <input type="email" id="contactEmail" placeholder=" " required />
+                <span class="field-hint">e.g. you@mail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="api-field" style="width: 100%; margin-top: 12px;">
+            <label>Message</label>
+            <div class="api-field-wrap">
+              <textarea
+                id="contactMessage"
+                placeholder=" "
+                required
+                style="
+                  width: 100%;
+                  min-height: 120px;
+                  border-radius: 12px;
+                  border: 1px solid var(--input-border);
+                  padding: 12px;
+                  background: var(--input-bg);
+                  color: var(--fg);
+                  font-family: inherit;
+                  font-size: 0.95rem;
+                  resize: vertical;
+                  transition: border-color 0.2s, box-shadow 0.2s, background 0.4s;
+                "
+                onfocus="this.style.boxShadow='0 0 0 3px rgba(2, 132, 199, 0.08)'; this.style.borderColor='var(--accent-blue)'"
+                onblur="this.style.boxShadow='none'; this.style.borderColor='var(--input-border)'"
+              ></textarea>
+            </div>
+          </div>
+
+          <button class="api-submit" type="submit">
+            <span class="pulse-dot"></span> Send Message
+          </button>
+
+          <div id="contactResult" style="display:none; margin-top: 10px; color: var(--muted); font-size: 0.92rem;"></div>
+        </form>
+
         <div class="contact-links-col">
           <a href="mailto:adityakumarssrrm@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg> adityakumarssrrm@gmail.com</a>
           <a href="https://github.com/Adityakumar222" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.43 9.64 8.21 11.21.6.11.82-.26.82-.57v-2.01c-3.34.72-4.04-1.61-4.04-1.61-.55-1.37-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.83.57C20.57 21.92 24 17.5 24 12.29 24 5.78 18.63.5 12 .5z"/></svg> GitHub</a>
           <a href="https://www.linkedin.com/in/adityakr2/" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
         </div>
-      </div>
-      <div class="contact-actions">
-        <a class="btn primary" href="https://drive.google.com/file/d/1ZUjlITuP9Y13VuqaNtHPo2BUZp0j4dnl/view?usp=drive_link" target="_blank" rel="noreferrer">View Resume</a>
-        <a class="btn ghost" href="#projects">See Projects</a>
-        <a class="btn ghost" href="mailto:adityakumarssrrm@gmail.com">Email Me</a>
       </div>
     </section>
 
@@ -1317,7 +1552,7 @@
 
     // 🔥 Card hover spotlight tracking
     const cards = document.querySelectorAll(
-      ".project-card, .skill-card, .about-card, .evidence-item"
+      ".project-card, .skill-card, .about-card"
     );
 
     cards.forEach(card => {
@@ -1467,6 +1702,29 @@
       } finally {
         skeleton.style.display = "none"; btn.disabled = false; btn.textContent = "Send Request";
       }
+    }
+
+    // ── Contact Form (mailto) ──
+    function sendMessage(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("contactName").value.trim();
+      const email = document.getElementById("contactEmail").value.trim();
+      const message = document.getElementById("contactMessage").value.trim();
+
+      const toEmail = "adityakumarssrrm@gmail.com";
+      const subject = `Portfolio message from ${name}`;
+      const body =
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}\n`;
+
+      window.location.href =
+        `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const result = document.getElementById("contactResult");
+      result.style.display = "block";
+      result.textContent = "Opening your email client to send the message…";
     }
   </script>
 </body>
